@@ -75,7 +75,7 @@ public class StreamAPI1 {
 
 
         List<Integer> ll = List.of(1, 2, 3, 4);
-        int max = ll.stream().max((i,j)->i>j?1:-1).get();
+        int max = ll.stream().max((i, j) -> i > j ? 1 : -1).get();
         System.out.println(max);
     }
 }
