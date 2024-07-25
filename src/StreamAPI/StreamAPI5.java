@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-class Gfg {
+class Student {
 
     int roll;
     int marks;
     String name;
 
-    Gfg(int roll, int marks, String name) {
+    Student(int roll, int marks, String name) {
         this.roll = roll;
         this.marks = marks;
         this.name = name;
@@ -33,16 +33,16 @@ class Gfg {
 public class StreamAPI5 {
     public static void main(String[] args) {
 
-        Gfg[] arr = {new Gfg(10, 12, "ABC"), new Gfg(23, 56, "BCV")};
+        Student[] arr = {new Student(10, 12, "ABC"), new Student(23, 56, "BCV")};
         double average = Arrays.stream(arr).mapToInt(g -> g.roll).average().getAsDouble();
         int max = Arrays.stream(arr).mapToInt(g -> g.marks).max().getAsInt();
         int min = Arrays.stream(arr).mapToInt(g -> g.marks).min().getAsInt();
         int sum = Arrays.stream(arr).mapToInt(g -> g.roll).sum();
         System.out.println(average);
 
-        Map<Integer, Integer> map = Arrays.stream(arr).collect(Collectors.toMap(Gfg::getMarks, Gfg::getRoll));
+        Map<Integer, Integer> map = Arrays.stream(arr).collect(Collectors.toMap(Student::getMarks, Student::getRoll));
 
-        Map<Integer, List<Gfg>> map1 = Arrays.stream(arr).collect(Collectors.groupingBy(Gfg::getMarks));
+        Map<Integer, List<Student>> map1 = Arrays.stream(arr).collect(Collectors.groupingBy(Student::getMarks));
 
     }
 }

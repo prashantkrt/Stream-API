@@ -6,6 +6,66 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/*
+Java Stream Intermediate Operations
+
+- filter()
+  Stream.of("B", "A", "C" , "B")
+        .filter(s -> s.equals("B"))
+
+- map()
+  Stream.of("B", "A", "C" , "B")
+        .map(s -> s.toLowerCase())
+
+- flatMap()
+  // flattens the multiple Stream to single Stream
+
+        Stream.of(
+        Arrays.asList("B", "A"),
+        Arrays.asList("C", "B")
+        )
+        .flatMap(l -> l.stream())
+
+- distinct()
+   Stream.of("B", "A", "C" , "B")
+        .distinct()
+
+- sorted()
+   Stream.of("B", "A", "C" , "B")
+        .sorted()
+
+-  peek()
+     Stream.of("B", "A", "C" , "B")
+        .peek(System.out::print)
+     returns a Stream with the elements "B", "A", "C" and "B" but, when consumed in its entirety, will print out the text "BACB" as a side effect.
+
+
+- limit()
+     Stream.of("B", "A", "C" , "B")
+        .limit(2)
+- skip()
+   Stream.of("B", "A", "C" , "B")
+        .skip(1)
+   returns a Stream with the elements "A", "C" and "B" because the first element in the stream will be skipped.
+*/
+
+
+/*
+Java Stream Terminal Operations
+- forEach
+- count
+- reduce
+- collect
+- anyMatch
+- allMatch
+- noneMatch
+- findFirst
+- findAny
+- min
+- max
+- toArray
+*/
+
 public class StreamAPI1 {
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(4, 1, 2, 6, 7, 9, 10, 2, 3);
@@ -77,5 +137,6 @@ public class StreamAPI1 {
         List<Integer> ll = List.of(1, 2, 3, 4);
         int max = ll.stream().max((i, j) -> i > j ? 1 : -1).get();
         System.out.println(max);
+
     }
 }
