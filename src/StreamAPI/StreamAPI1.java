@@ -83,7 +83,7 @@ public class StreamAPI1 {
         System.out.println(list);
 
         // stream is an interface
-        // once we have used the stream , next time it cannot be used
+        // once we have used the stream, next time it cannot be used
         Stream<Integer> s1 = list.stream();
         s1.forEach(i -> System.out.print(i + " "));
 
@@ -137,6 +137,8 @@ public class StreamAPI1 {
         List<Integer> ll = List.of(1, 2, 3, 4);
         int max = ll.stream().max((i, j) -> i > j ? 1 : -1).get();
         System.out.println(max);
+        int max2 = ll.stream().max((a,b)->a-b).get();
+        System.out.println(max2);
 
     }
 }

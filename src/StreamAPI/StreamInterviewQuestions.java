@@ -2,7 +2,9 @@ package StreamAPI;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.LinkedHashMap;
 
 public class StreamInterviewQuestions {
     public static void main(String[] args) {
@@ -25,27 +27,65 @@ public class StreamInterviewQuestions {
 
         result.forEach((key, value) -> System.out.println(key + "-" + value));
 
+
+//    Map<String, Integer> result = Arrays.stream(str.split(","))
+//            .collect(Collectors.toMap(
+//                    s -> s,
+//                    s -> 1,
+//                    Integer::sum
+//            ));
+//
+//        result.forEach((key, value) -> System.out.println(key + "-" + value));
+
+
+//    Map<String, Integer> result = Arrays.stream(str.split(","))
+//            .collect(Collectors.toMap(
+//                    s -> s,
+//                    s -> 1,
+//                    Integer::sum
+//            ));
+//
+//        result.forEach((key, value) -> System.out.println(key + "-" + value));
+
+        //map= Arrays.stream(str.split(",")).collect(Collectors.toMap(i->i,i->1,(a,b)->a+b));
+
+
+        // FirstNonRepeatedCharacter
+
+        String input = "swiss";
+
+//        Character firstNonRepeatedChar = input.chars()
+//                .mapToObj(c -> (char) c)
+//                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+//                .entrySet()
+//                .stream()
+//                .filter(entry -> entry.getValue() == 1)
+//                .map(Map.Entry::getKey)
+//                .findFirst()
+//                .orElse(null);
+
+//
+//        Character firstNonRepeatedChar = input.chars()
+//                .mapToObj(c -> (char) c)
+//                .collect(Collectors.groupingBy(c -> c, LinkedHashMap::new, Collectors.counting()))
+//                .entrySet()
+//                .stream()
+//                .filter(entry -> entry.getValue() == 1)
+//                .map(Map.Entry::getKey)
+//                .findFirst()
+//                .orElse(null);
+
+        Character firstNonRepeatedChar = input.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(c -> c, () -> new LinkedHashMap<>(), Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() == 1)
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse(null);
+
+        System.out.println(firstNonRepeatedChar);
     }
-
-
-//    Map<String, Integer> result = Arrays.stream(str.split(","))
-//            .collect(Collectors.toMap(
-//                    s -> s,
-//                    s -> 1,
-//                    Integer::sum
-//            ));
-//
-//        result.forEach((key, value) -> System.out.println(key + "-" + value));
-
-
-//    Map<String, Integer> result = Arrays.stream(str.split(","))
-//            .collect(Collectors.toMap(
-//                    s -> s,
-//                    s -> 1,
-//                    Integer::sum
-//            ));
-//
-//        result.forEach((key, value) -> System.out.println(key + "-" + value));
-
-    //map= Arrays.stream(str.split(",")).collect(Collectors.toMap(i->i,i->1,(a,b)->a+b));
 }
+

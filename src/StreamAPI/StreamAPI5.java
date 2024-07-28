@@ -41,8 +41,10 @@ public class StreamAPI5 {
         System.out.println(average);
 
         Map<Integer, Integer> map = Arrays.stream(arr).collect(Collectors.toMap(Student::getMarks, Student::getRoll));
+        System.out.println(map);
 
         Map<Integer, List<Student>> map1 = Arrays.stream(arr).collect(Collectors.groupingBy(Student::getMarks));
+        System.out.println(map1);
 
     }
 }

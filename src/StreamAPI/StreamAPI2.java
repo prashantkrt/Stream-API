@@ -26,7 +26,7 @@ public class StreamAPI2 {
 
         List<Float> list2 = list.stream().filter(p -> p.price > 30000)// filtering data
                 .map(p -> p.price)        // fetching price
-                .toList(); // collecting as list
+                .toList(); // collecting as a list
         list2.forEach(i -> System.out.print(i + " "));
 
         Float totalPrice = list.stream().map(product -> product.price).reduce(0.0f, Float::sum);   // accumulating price
