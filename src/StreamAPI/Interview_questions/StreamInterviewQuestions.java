@@ -1,8 +1,7 @@
-package StreamAPI;
+package StreamAPI.Interview_questions;
 
 import java.util.Arrays;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.LinkedHashMap;
 
