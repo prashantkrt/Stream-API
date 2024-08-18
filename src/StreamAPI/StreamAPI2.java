@@ -29,9 +29,10 @@ public class StreamAPI2 {
                 .toList(); // collecting as a list
         list2.forEach(i -> System.out.print(i + " "));
 
+        System.out.println();
+
         Float totalPrice = list.stream().map(product -> product.price).reduce(0.0f, Float::sum);   // accumulating price
         System.out.println(totalPrice);
-
 
         StreamAPI2 product = list.stream().max((p1, p2) -> p1.price > p2.price ? 1 : -1).get();
         System.out.println(product.price);
