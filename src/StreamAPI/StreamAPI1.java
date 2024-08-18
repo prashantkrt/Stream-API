@@ -75,9 +75,15 @@ public class StreamAPI1 {
         int sum = list.stream().filter(i -> i % 2 == 0).map(i -> i * 2).reduce(0, (a, b) -> a + b);
         System.out.println(sum);
 
+        //sum of odd number * 2
+        int sumOdd= list.stream().filter(i->i%2!=0).map(i->i*2).reduce(0,Integer::sum);
+
         //sum of only even number
         int evenSum = list.stream().filter(i -> i % 2 == 0).mapToInt(n -> n).sum();
         System.out.println(evenSum);
+
+        //sum of only odd number
+        int oddSum = list.stream().filter(i->i%2!=0).mapToInt(n->n).reduce(0,(a,b)->a+b);
 
         //distinct element
         list = list.stream().distinct().toList();
@@ -146,13 +152,13 @@ public class StreamAPI1 {
         //Stream.peek() without any terminal operation does nothing.
         Stream<String> nameStream = Stream.of("Alice", "Bob", "Chuck");
         //does nothing
-        nameStream.peek(System.out::println);
+        nameStream.peek(System.out::println); // the result will be ignored
 
         List<Integer> demo
                 = Arrays.asList(0, 2, 4, 6, 8, 10);
         // Using peek without any terminal
         // operation does nothing
-        demo.stream().peek(System.out::println);
+        demo.stream().peek(System.out::println); // the result will be ignored
 
 
         System.out.println();
@@ -174,6 +180,5 @@ public class StreamAPI1 {
         System.out.println(newIntegerList);
 
         System.out.println("End of content");
-
     }
 }

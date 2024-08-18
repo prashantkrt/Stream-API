@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0a5c4602-c38d-43aa-bc1c-d0b267612340" name="Changes" comment="Stream API">
+      <change beforePath="$PROJECT_DIR$/src/StreamAPI/StreamAPI1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/StreamAPI1.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;prashantkrt&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/prashantkrt/Stream-API.git&quot;,
+    &quot;accountId&quot;: &quot;2a3e4a05-7512-47c5-ba57-dc67d0129e55&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2fSDAinQPYmVwTzfQgYVHyneamO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.StreamAPI1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StreamAPI2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StreamAPI5.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StreamInterviewQuestions.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Student.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="StreamInterviewQuestions" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StreamAPI.Interview_questions.StreamInterviewQuestions" />
+      <module name="Stream-API" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="StreamAPI.Interview_questions.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.StreamInterviewQuestions" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0a5c4602-c38d-43aa-bc1c-d0b267612340" name="Changes" comment="" />
+      <created>1713785444820</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713785444820</updated>
+      <workItem from="1713785446272" duration="33000" />
+      <workItem from="1716897537880" duration="2085000" />
+      <workItem from="1718101205758" duration="57000" />
+      <workItem from="1718265400163" duration="898000" />
+      <workItem from="1718365455117" duration="530000" />
+      <workItem from="1718702536533" duration="475000" />
+      <workItem from="1719383158134" duration="1783000" />
+      <workItem from="1719482964910" duration="221000" />
+      <workItem from="1719825713212" duration="1206000" />
+      <workItem from="1720505389042" duration="729000" />
+      <workItem from="1721918974444" duration="3998000" />
+      <workItem from="1721967990245" duration="98000" />
+      <workItem from="1721995346227" duration="426000" />
+      <workItem from="1721997699588" duration="1472000" />
+      <workItem from="1722002788023" duration="140000" />
+      <workItem from="1722161790079" duration="765000" />
+      <workItem from="1722164213065" duration="21000" />
+      <workItem from="1722182615037" duration="171000" />
+      <workItem from="1722358519016" duration="6073000" />
+      <workItem from="1722404156151" duration="6390000" />
+      <workItem from="1722414537256" duration="18000" />
+      <workItem from="1723987804876" duration="2459000" />
+    </task>
+    <task id="LOCAL-00001" summary="Stream API">
+      <option name="closed" value="true" />
+      <created>1721922157716</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1721922157716</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Stream API">
+      <option name="closed" value="true" />
+      <created>1722182717658</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722182717658</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Stream API">
+      <option name="closed" value="true" />
+      <created>1722364221550</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722364221550</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Stream API">
+      <option name="closed" value="true" />
+      <created>1723987850941</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1723987850941</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Stream API">
+      <option name="closed" value="true" />
+      <created>1723989202801</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1723989202801</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Stream API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stream API" />
+  </component>
+</project>
