@@ -111,6 +111,12 @@ public class Student {
         Map.Entry<String, Long> entry = list.stream()
                 .collect(Collectors.groupingBy(Student::getDepartmentName, Collectors.counting())).entrySet().stream()
                 .max(Map.Entry.comparingByValue()).get();
+
+//        Map.Entry<String, Long> entry = list.stream()
+//                .collect(Collectors.groupingBy(Student::getDepartmentName, Collectors.counting()))
+//                .entrySet().stream()
+//                .max((entry1, entry2) -> Long.compare(entry1.getValue(), entry2.getValue()))
+//                .get();
         // Mechanical Engineering=4
         System.out.println("Department having maximum number of students : "+entry);
 

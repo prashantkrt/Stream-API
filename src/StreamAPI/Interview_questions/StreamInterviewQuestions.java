@@ -52,7 +52,7 @@ public class StreamInterviewQuestions {
         // FirstNonRepeatedCharacter
 
         String input = "swiss";
-
+// The input.chars() method in Java's String class returns an IntStream of the characters in the string.
 //        Character firstNonRepeatedChar = input.chars()
 //                .mapToObj(c -> (char) c)
 //                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
@@ -70,7 +70,7 @@ public class StreamInterviewQuestions {
 //                .entrySet()
 //                .stream()
 //                .filter(entry -> entry.getValue() == 1)
-//                .map(Map.Entry::getKey)
+//                .map(Map.Entry::getKey) or  .map(entry -> entry.getKey())
 //                .findFirst()
 //                .orElse(null);
 
