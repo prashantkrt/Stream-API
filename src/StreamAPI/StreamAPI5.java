@@ -28,6 +28,15 @@ class Student {
     String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "roll=" + roll +
+                ", marks=" + marks +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
 
 public class StreamAPI5 {
@@ -36,6 +45,8 @@ public class StreamAPI5 {
         Student[] arr = {new Student(10, 12, "ABC"), new Student(23, 56, "BCV")};
         double average = Arrays.stream(arr).mapToInt(g -> g.roll).average().getAsDouble();
         int max = Arrays.stream(arr).mapToInt(g -> g.marks).max().getAsInt();
+        //or
+        max = Arrays.stream(arr).map(i -> i.marks).max((i, j) -> i > j ? 1 : -1).get();
         int min = Arrays.stream(arr).mapToInt(g -> g.marks).min().getAsInt();
         int sum = Arrays.stream(arr).mapToInt(g -> g.roll).sum();
         System.out.println(average);
