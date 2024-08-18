@@ -43,6 +43,7 @@ Java Stream Intermediate Operations
 - limit()
      Stream.of("B", "A", "C" , "B")
         .limit(2)
+
 - skip()
    Stream.of("B", "A", "C" , "B")
         .skip(1)
@@ -139,6 +140,40 @@ public class StreamAPI1 {
         System.out.println(max);
         int max2 = ll.stream().max((a,b)->a-b).get();
         System.out.println(max2);
+
+        // peek() API to debug the Stream operations and log Stream elements as they are processed.
+
+        //Stream.peek() without any terminal operation does nothing.
+        Stream<String> nameStream = Stream.of("Alice", "Bob", "Chuck");
+        //does nothing
+        nameStream.peek(System.out::println);
+
+        List<Integer> demo
+                = Arrays.asList(0, 2, 4, 6, 8, 10);
+        // Using peek without any terminal
+        // operation does nothing
+        demo.stream().peek(System.out::println);
+
+
+        System.out.println();
+        List<Integer> newList
+                = Arrays.asList(0, 2, 4, 6, 8, 10);
+        // Using peek with the forEach() method
+        // which is a terminal operation
+        newList.stream()
+                .peek(System.out::println)
+                .forEach(x -> {});
+
+
+        List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5);
+
+        List<Integer> newIntegerList = list.stream()
+                .peek(System.out::println) // now it will print the element the way it's getting processed
+                .collect(Collectors.toList());
+
+        System.out.println(newIntegerList);
+
+        System.out.println("End of content");
 
     }
 }
