@@ -125,10 +125,16 @@ public class Student {
                 .sorted(Comparator.comparing(Student::getFirstName)).collect(Collectors.toList());
         System.out.println("List of students who stays in Delhi and sort them by their names : "+lstDelhiStudent);
 
+        // or
+        List<Student> lstDelhiStudent1 = list.stream().filter(dt -> dt.getCity().equals("Delhi"))
+                .sorted((a,b)->(a.getFirstName().compareTo(b.getFirstName()))).collect(Collectors.toList());
+        System.out.println("List of students who stays in Delhi and sort them by their names : "+lstDelhiStudent1);
+
         // or (str1, str2) -> str1. compareToIgnoreCase(str2)
         List<Student> lstDelhiStudent2 = list.stream().filter(dt -> dt.getCity().equals("Delhi"))
-                .sorted((p1, p2) -> p1.getFirstName().compareTo(p2.getFirstName())).collect(Collectors.toList());
+                .sorted((p1, p2) -> p1.getFirstName().compareToIgnoreCase(p2.getFirstName())).collect(Collectors.toList());
         System.out.println(lstDelhiStudent2);
+        System.out.println();
 
 
         // 12 - Find the average rank in all departments
@@ -144,6 +150,11 @@ public class Student {
         Map<String, Optional<Student>> studentData = list.stream().collect(Collectors.groupingBy(Student::getDepartmentName,
                 Collectors.minBy(Comparator.comparing(Student::getRank))));
         System.out.println("Highest rank in each department  : "+studentData);
+
+        // or
+        Map<String, Optional<Student>> studentData2 = list.stream().collect(Collectors.groupingBy(Student::getDepartmentName,
+                Collectors.minBy((a,b)->(a.getRank()-b.getRank()))));
+        System.out.println("Highest rank in each department  : "+studentData2);
 
 
         // 14- Find the list of students and sort them by their rank
