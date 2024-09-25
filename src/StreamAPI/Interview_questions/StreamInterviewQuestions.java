@@ -2,6 +2,7 @@ package StreamAPI.Interview_questions;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.LinkedHashMap;
 
@@ -96,6 +97,48 @@ public class StreamInterviewQuestions {
                 .orElse(null);
 
         System.out.println(firstNonRepeatedChar);
+
+
+        long number = 121234;
+
+        Optional<Integer> firstNonRepeatedDigit = Long.toString(number).chars()  // Stream of int (ASCII values)
+                .mapToObj(c -> (char) c)  // Convert ASCII values to Character
+                .collect(Collectors.groupingBy(c -> c, LinkedHashMap::new, Collectors.counting())) // Count occurrences
+                .entrySet().stream()  // Stream of Map.Entry<Character, Long>
+                .filter(entry -> entry.getValue() == 1)  // Filter for non-repeated digits
+                .map(Map.Entry::getKey)  // Get the Character from the entry
+                //.map(c -> Character.getNumericValue(c))  // Convert Character to Integer
+                .map(c -> c - '0')  // Convert Character to Integer using ASCII
+                .findFirst();  // Find the first non-repeated digit
+
+        // Print the result
+        firstNonRepeatedDigit.ifPresentOrElse(
+                digit -> System.out.println("First non-repeated digit: " + digit),
+                () -> System.out.println("No non-repeated digit found.")
+        );
+//        int number = 121234;
+//
+//        Optional<Character> firstNonRepeatedDigit = Integer.toString(number).chars()  // Stream of int (ASCII values)
+//                .mapToObj(c -> (char) c)  // Convert to Character
+//                .collect(LinkedHashMap::new, (map, c) -> map.put(c, map.getOrDefault(c, 0) + 1), LinkedHashMap::putAll) // Count occurrences
+//                .entrySet().stream()  // Stream of Map.Entry<Character, Integer>
+//                .filter(entry -> entry.getValue() == 1)  // Filter for non-repeated digits
+//                .map(Map.Entry::getKey)  // Get the Character from the entry
+//                .findFirst();  // Find the first non-repeated character
+//
+//        // Print the result
+//        firstNonRepeatedDigit.ifPresentOrElse(
+//                digit -> System.out.println("First non-repeated digit: " + digit),
+//                () -> System.out.println("No non-repeated digit found.")
+//        );
+
+
+
+        // just playing around
+//        List<Employee> employees = IntStream.rangeClosed(1, 10)
+//                .mapToObj(i -> new Employee(i, "employee " + i)).collect(Collectors.toList());
+//        log.info("EmployeeService:getEmployees find all employees from system  {}", new ObjectMapper().writeValueAsString(employees));
+//        return employees;
     }
 }
 

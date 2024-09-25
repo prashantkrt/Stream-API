@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0a5c4602-c38d-43aa-bc1c-d0b267612340" name="Changes" comment="Stream API">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StreamAPI/StreamAPI1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/StreamAPI1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StreamAPI/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/StreamAPI1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/StreamAPI1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StreamAPI/Interview_questions/StreamInterviewQuestions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/Interview_questions/StreamInterviewQuestions.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +159,7 @@
       <workItem from="1723987804876" duration="6975000" />
       <workItem from="1724054803509" duration="661000" />
       <workItem from="1724085489413" duration="73000" />
-      <workItem from="1727263960146" duration="3673000" />
+      <workItem from="1727263960146" duration="4682000" />
     </task>
     <task id="LOCAL-00001" summary="Stream API">
       <option name="closed" value="true" />
@@ -241,7 +241,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724085553210</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Stream API">
+      <option name="closed" value="true" />
+      <created>1727268054458</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727268054458</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
