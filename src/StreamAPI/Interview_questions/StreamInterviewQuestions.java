@@ -1,10 +1,10 @@
 package StreamAPI.Interview_questions;
 
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Optional;
+import java.io.InputStream;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.LinkedHashMap;
+import java.util.stream.IntStream;
 
 public class StreamInterviewQuestions {
     public static void main(String[] args) {
@@ -35,7 +35,7 @@ public class StreamInterviewQuestions {
         result.forEach((key, value) -> System.out.println(key + "-" + value));
 
 
-       // Third way
+        // Third way
 //    Map<String, Integer> result = Arrays.stream(str.split(","))
 //            .collect(Collectors.toMap(
 //                    s -> s,
@@ -55,7 +55,7 @@ public class StreamInterviewQuestions {
 //
 //        result.forEach((key, value) -> System.out.println(key + "-" + value));
 
-        Map<String, Integer>  map= Arrays.stream(str.split(",")).collect(Collectors.toMap(i->i,i->1,(a,b)->a+b));
+        Map<String, Integer> map = Arrays.stream(str.split(",")).collect(Collectors.toMap(i -> i, i -> 1, (a, b) -> a + b));
         System.out.println(map);
 
 
@@ -133,12 +133,100 @@ public class StreamInterviewQuestions {
 //        );
 
 
-
         // just playing around
 //        List<Employee> employees = IntStream.rangeClosed(1, 10)
 //                .mapToObj(i -> new Employee(i, "employee " + i)).collect(Collectors.toList());
 //        log.info("EmployeeService:getEmployees find all employees from system  {}", new ObjectMapper().writeValueAsString(employees));
 //        return employees;
+
+
+        // Given a list of integers, find out all the numbers starting with 1 using Stream functions?
+        List<Integer> myNewList = Arrays.asList(10, 15, 8, 49, 25, 98, 32);
+        myNewList.stream()
+                .map(s -> s + "") // Convert integer to String
+                .filter(s -> s.startsWith("1"))
+                .forEach(System.out::println);
+
+        /* or can also try below method */
+
+        List<String> list = Arrays.stream(new int[]{1, 2, 3, 4})
+                .boxed()  // Converts IntStream to Stream<Integer>
+                .map(s -> s + "")
+                .filter(s -> s.startsWith("1"))
+                .collect(Collectors.toList());
+
+        IntStream.rangeClosed(1, 10).filter(i->i%2==0).map(i->i+2).boxed().toList();
+
+        Arrays.stream(new int[]{1, 2, 3, 4}).map(i -> i * 2)
+                .boxed()   // Box the primitive int to Integer
+                .toList();
+
+        System.out.println(list);
+
+
+
+        //How to find duplicate elements in a given integers list in java using Stream functions?
+        List<Integer> myList = Arrays.asList(10,15,8,49,25,98,98,32,15);
+        Set<Integer> set = new HashSet();
+        myList.stream()
+                .filter(n -> !set.add(n))
+                .forEach(System.out::println);
+
+        //Given a list of integers, find the total number of elements present in the list using Stream functions?
+        List<Integer> myNList = Arrays.asList(10,15,8,49,25,98,98,32,15);
+        long count =  myList.stream()
+                .count();
+        System.out.println(count);
+
+        /* or can also try below line code */
+        Arrays.stream(new int[]{1,2,3,4,5}).boxed().count();
+
+
+        //Given a String, find the first repeated character in it using Stream functions?
+        // String input = "Java Articles are Awesome";
+
+        Character resultNew = input.chars() // Stream of String
+                .mapToObj(s -> Character.toLowerCase(Character.valueOf((char) s))) // First convert to Character object and then to lowercase
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting())) //Store the chars in map with count
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() > 1L)
+                .map(entry -> entry.getKey())
+                .findFirst()
+                .get();
+        System.out.println(result);
+
+
+        // 2nd way
+        Set<Character> seenCharacters = new HashSet<>();
+
+            resultNew = input.chars()
+                .mapToObj(c -> (char) c)
+                .filter(c -> !seenCharacters.add(c))
+                .findFirst()
+                .orElse(null);
+
+
+
+    //Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+//        List<Integer> list = Arrays.stream(nums)
+//                .boxed()
+//                .collect(Collectors.toList());
+//        Set<Integer> set = new HashSet<>(list);
+//        if(set.size() == list.size()) {
+//            return false;
+//        }
+//        return true;
+
+        /* or can also try below way */
+     /*   Set<Integer> setData = new HashSet<>();
+        return Arrays.stream(nums)
+                .anyMatch(num -> !setData.add(num));
+    }*/
+
+
     }
+
 }
 
