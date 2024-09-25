@@ -107,10 +107,14 @@ public class Student {
                 .collect(Collectors.groupingBy(Student::getGender, Collectors.averagingInt(Student::getAge)));
         System.out.println("Average age of male and female students : "+mapAvgAge);
 
+        // Imp
         // 10 - Find the department who is having maximum number of students
         Map.Entry<String, Long> entry = list.stream()
                 .collect(Collectors.groupingBy(Student::getDepartmentName, Collectors.counting())).entrySet().stream()
                 .max(Map.Entry.comparingByValue()).get();
+
+// .max((e1, e2) -> e1.getValue().compareTo(e2.getValue())) // Lambda instead of method reference
+// .max((e1, e2) -> (e1.getValue() - e2.getValue() > 0) ? 1 : -1) // Using arithmetic comparison
 
 //        Map.Entry<String, Long> entry = list.stream()
 //                .collect(Collectors.groupingBy(Student::getDepartmentName, Collectors.counting()))
@@ -118,6 +122,11 @@ public class Student {
 //                .max((entry1, entry2) -> Long.compare(entry1.getValue(), entry2.getValue()))
 //                .get();
         // Mechanical Engineering=4
+
+       //*** We can go for further simplification
+// .max((e1, e2) -> e1.getValue().compareTo(e2.getValue())) // Lambda instead of method reference
+// .max((e1, e2) -> (e1.getValue() - e2.getValue() > 0) ? 1 : -1) // Using arithmetic comparison
+
         System.out.println("Department having maximum number of students : "+entry);
 
         // 11 - Find the Students who stays in Delhi and sort them by their names
@@ -135,7 +144,6 @@ public class Student {
                 .sorted((p1, p2) -> p1.getFirstName().compareToIgnoreCase(p2.getFirstName())).collect(Collectors.toList());
         System.out.println(lstDelhiStudent2);
         System.out.println();
-
 
         // 12 - Find the average rank in all departments
         Map<String, Double> collect = list.stream()
@@ -156,6 +164,28 @@ public class Student {
                 Collectors.minBy((a,b)->(a.getRank()-b.getRank()))));
         System.out.println("Highest rank in each department  : "+studentData2);
 
+        // approach 2
+//        Map<String, Student> studentData = list.stream()
+//                .collect(Collectors.groupingBy(
+//                        Student::getDepartmentName,
+//                        Collectors.reducing((s1, s2) -> s1.getRank() < s2.getRank() ? s1 : s2)
+//                ))
+//                .entrySet().stream()
+//                .collect(Collectors.toMap(
+//                        Map.Entry::getKey,
+//                        e -> e.getValue().orElse(null)
+//                ));
+
+
+      // approach 3
+
+//        Map<String, Student> studentData = list.stream()
+//                .collect(Collectors.toMap(
+//                        Student::getDepartmentName,
+//                        student -> student,
+//                        (s1, s2) -> s1.getRank() < s2.getRank() ? s1 : s2 // Keep the student with the highest rank
+//                ));
+//
 
         // 14- Find the list of students and sort them by their rank
         List<Student> stuRankSorted = list.stream().sorted(Comparator.comparing(Student::getRank))

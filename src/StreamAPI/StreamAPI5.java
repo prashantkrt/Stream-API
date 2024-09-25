@@ -56,6 +56,10 @@ public class StreamAPI5 {
 
         Map<Integer, List<Student>> map1 = Arrays.stream(arr).collect(Collectors.groupingBy(Student::getMarks));
         System.out.println(map1);
+        Integer [] arr1 = new Integer[]{1,2,3,4};
+        Arrays.stream(arr1).map(i -> i).collect(Collectors.toList());
+        int [] arr2 = new int[]{1,2,3,4};
+        Arrays.stream(arr2).boxed().collect(Collectors.toList());
 
     }
 }

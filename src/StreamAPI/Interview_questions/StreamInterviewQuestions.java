@@ -18,6 +18,7 @@ public class StreamInterviewQuestions {
         Map<String, Long> result = Arrays.stream(str.split(","))
                 .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
 
+        // [Apple-2, Orange-2]
         String output = result.entrySet().stream()
                 .map(e -> e.getKey() + "-" + e.getValue())
                 .collect(Collectors.joining(", ", "[", "]"));
@@ -29,6 +30,8 @@ public class StreamInterviewQuestions {
 
         Map<String, Long> res = Arrays.stream(str.split(","))
                 .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
+
+        //{Apple=2, Orange=2}
         System.out.println(res);
         System.out.println();
 
@@ -220,10 +223,60 @@ public class StreamInterviewQuestions {
 //        return true;
 
         /* or can also try below way */
-     /*   Set<Integer> setData = new HashSet<>();
-        return Arrays.stream(nums)
+     /*
+          Set<Integer> setData = new HashSet<>();
+          return Arrays.stream(nums)
                 .anyMatch(num -> !setData.add(num));
-    }*/
+    */
+
+
+       // how to convert string into char array and pass it to stream
+
+//        String str = "Hello World";
+//
+//        // Convert string to char array
+//        char[] charArray = str.toCharArray();
+//
+//        // Convert char array to stream
+//        Stream<Character> charStream = Arrays.stream(charArray)
+//                .mapToObj(c -> (char) c); // Convert each char to Character
+//
+//        // Example operation on the stream
+//        charStream.forEach(System.out::println);
+
+
+//        String str = "swiss";
+//
+//        // Convert string to character stream and group by character with their count
+//        Character firstNonRepeatedChar = str.chars()
+//                .mapToObj(c -> (char) c) // Convert int stream to character stream
+//                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting())) // Group by char and count occurrences
+//                .entrySet().stream()
+//                .filter(entry -> entry.getValue() == 1) // Filter only entries with a count of 1
+//                .map(Map.Entry::getKey) // Get the character
+//                .findFirst() // Find the first occurrence
+//                .orElse(null); // If no non-repeated character exists
+//
+//        if (firstNonRepeatedChar != null) {
+//            System.out.println("First non-repeated character: " + firstNonRepeatedChar);
+//        } else {
+//            System.out.println("No non-repeated character found.");
+//        }
+
+
+ // we can also use boxed instead of mapToObj()
+
+        // Convert string to character stream and group by character with their count
+//        Character firstNonRepeatedChar = str.chars()
+//                .boxed() // Convert IntStream to Stream<Integer>
+//                .collect(Collectors.groupingBy(i -> (char) i.intValue(), LinkedHashMap::new, Collectors.counting())) // Group by char and count occurrences
+                   //.collect(Collectors.groupingBy(i -> (char) i, LinkedHashMap::new, Collectors.counting())) // Group by char and count occurrences
+//                .entrySet().stream()
+//                .filter(entry -> entry.getValue() == 1) // Filter only entries with a count of 1
+//                .map(Map.Entry::getKey) // Get the character
+//                .findFirst() // Find the first occurrence
+//                .orElse(null); // If no non-repeated character exists
+//
 
 
     }

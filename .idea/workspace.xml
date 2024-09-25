@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0a5c4602-c38d-43aa-bc1c-d0b267612340" name="Changes" comment="Stream API">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/Interview_questions/StreamInterviewQuestions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/Interview_questions/StreamInterviewQuestions.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StreamAPI/Interview_questions/StreamInterviewQuestions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/Interview_questions/StreamInterviewQuestions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StreamAPI/Interview_questions/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/Interview_questions/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StreamAPI/StreamAPI5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/StreamAPI5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StreamAPI/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,13 +61,13 @@
     "git-widget-placeholder": "main"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.StreamInterviewQuestions">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="StreamAPI2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="StreamAPI.StreamAPI2" />
       <module name="Stream-API" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StreamAPI.*" />
+          <option name="PATTERN" value="StreamAPI.Student" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -76,7 +80,7 @@
       <module name="Stream-API" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StreamAPI.*" />
+          <option name="PATTERN" value="StreamAPI.Student" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -102,7 +106,7 @@
       <module name="Stream-API" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StreamAPI.*" />
+          <option name="PATTERN" value="StreamAPI.Student" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -112,8 +116,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.StreamInterviewQuestions" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.StreamInterviewQuestions" />
         <item itemvalue="Application.StreamAPI5" />
         <item itemvalue="Application.StreamAPI2" />
       </list>
@@ -158,7 +162,7 @@
       <workItem from="1723987804876" duration="6975000" />
       <workItem from="1724054803509" duration="661000" />
       <workItem from="1724085489413" duration="73000" />
-      <workItem from="1727263960146" duration="5917000" />
+      <workItem from="1727263960146" duration="10500000" />
     </task>
     <task id="LOCAL-00001" summary="Stream API">
       <option name="closed" value="true" />
@@ -256,7 +260,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727269513806</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Stream API">
+      <option name="closed" value="true" />
+      <created>1727270689952</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1727270689952</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Stream API">
+      <option name="closed" value="true" />
+      <created>1727270735167</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1727270735167</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
