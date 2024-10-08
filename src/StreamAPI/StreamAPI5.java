@@ -60,6 +60,8 @@ public class StreamAPI5 {
         Arrays.stream(arr1).map(i -> i).collect(Collectors.toList());
         int [] arr2 = new int[]{1,2,3,4};
         Arrays.stream(arr2).boxed().collect(Collectors.toList());
+        Arrays.stream(arr2).map(i->i).boxed().collect(Collectors.toList());
+        Arrays.stream(arr2).boxed().map(i->i).collect(Collectors.toList());
 
     }
 }

@@ -1,6 +1,7 @@
 package StreamAPI;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -37,11 +38,20 @@ public class StreamAPI2 {
         StreamAPI2 product = list.stream().max((p1, p2) -> p1.price > p2.price ? 1 : -1).get();
         System.out.println(product.price);
 
+        list.stream().max((p1, p2) -> (int) (p1.price - p2.price)).get();
+        System.out.println(product.price);
+
+        StreamAPI2 product1 = list.stream()
+                .max(Comparator.comparingDouble(p -> p.price))
+                .get();
+        System.out.println(product.price);
+
         long count = list.stream().filter(p -> p.price < 30000).count();
         System.out.println(count);
 
         //converting to the map
         Map<Integer, String> map = list.stream().collect(Collectors.toMap(p -> p.id, p -> p.name));
         System.out.println(map);
+
     }
 }

@@ -1,6 +1,5 @@
 package StreamAPI.Interview_questions;
 
-import java.io.InputStream;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -112,7 +111,7 @@ public class StreamInterviewQuestions {
                 .map(Map.Entry::getKey)  // Get the Character from the entry
                 //.map(c -> Character.getNumericValue(c))  // Convert Character to Integer
                 .map(c -> c - '0')  // Convert Character to Integer using ASCII
-                .findFirst();  // Find the first non-repeated digit
+                .findFirst(); // Find the first non-repeated digit
 
         // Print the result
         firstNonRepeatedDigit.ifPresentOrElse(
@@ -150,6 +149,13 @@ public class StreamInterviewQuestions {
                 .filter(s -> s.startsWith("1"))
                 .forEach(System.out::println);
 
+        List<Integer> newList = Arrays.asList(10, 15, 8, 49, 25, 98, 32);
+        newList.stream()
+                .map(s -> s + "") // Convert integer to String
+                .filter(s -> s.startsWith("1"))
+                .map(Integer::parseInt)
+                .forEach(System.out::println);
+
         /* or can also try below method */
 
         List<String> list = Arrays.stream(new int[]{1, 2, 3, 4})
@@ -158,7 +164,7 @@ public class StreamInterviewQuestions {
                 .filter(s -> s.startsWith("1"))
                 .collect(Collectors.toList());
 
-        IntStream.rangeClosed(1, 10).filter(i->i%2==0).map(i->i+2).boxed().toList();
+        IntStream.rangeClosed(1, 10).filter(i -> i % 2 == 0).map(i -> i + 2).boxed().toList();
 
         Arrays.stream(new int[]{1, 2, 3, 4}).map(i -> i * 2)
                 .boxed()   // Box the primitive int to Integer
@@ -167,22 +173,21 @@ public class StreamInterviewQuestions {
         System.out.println(list);
 
 
-
         //How to find duplicate elements in a given integers list in java using Stream functions?
-        List<Integer> myList = Arrays.asList(10,15,8,49,25,98,98,32,15);
+        List<Integer> myList = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
         Set<Integer> set = new HashSet();
         myList.stream()
                 .filter(n -> !set.add(n))
                 .forEach(System.out::println);
 
         //Given a list of integers, find the total number of elements present in the list using Stream functions?
-        List<Integer> myNList = Arrays.asList(10,15,8,49,25,98,98,32,15);
-        long count =  myList.stream()
+        List<Integer> myNList = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
+        long count = myList.stream()
                 .count();
         System.out.println(count);
 
         /* or can also try below line code */
-        Arrays.stream(new int[]{1,2,3,4,5}).boxed().count();
+        Arrays.stream(new int[]{1, 2, 3, 4, 5}).boxed().count();
 
 
         //Given a String, find the first repeated character in it using Stream functions?
@@ -203,15 +208,14 @@ public class StreamInterviewQuestions {
         // 2nd way
         Set<Character> seenCharacters = new HashSet<>();
 
-            resultNew = input.chars()
+        resultNew = input.chars()
                 .mapToObj(c -> (char) c)
                 .filter(c -> !seenCharacters.add(c))
                 .findFirst()
                 .orElse(null);
 
 
-
-    //Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+        //Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 
 //        List<Integer> list = Arrays.stream(nums)
 //                .boxed()
@@ -230,7 +234,7 @@ public class StreamInterviewQuestions {
     */
 
 
-       // how to convert string into char array and pass it to stream
+        // how to convert string into char array and pass it to stream
 
 //        String str = "Hello World";
 //
@@ -264,13 +268,13 @@ public class StreamInterviewQuestions {
 //        }
 
 
- // we can also use boxed instead of mapToObj()
+        // we can also use boxed instead of mapToObj()
 
         // Convert string to character stream and group by character with their count
 //        Character firstNonRepeatedChar = str.chars()
 //                .boxed() // Convert IntStream to Stream<Integer>
 //                .collect(Collectors.groupingBy(i -> (char) i.intValue(), LinkedHashMap::new, Collectors.counting())) // Group by char and count occurrences
-                   //.collect(Collectors.groupingBy(i -> (char) i, LinkedHashMap::new, Collectors.counting())) // Group by char and count occurrences
+        //.collect(Collectors.groupingBy(i -> (char) i, LinkedHashMap::new, Collectors.counting())) // Group by char and count occurrences
 //                .entrySet().stream()
 //                .filter(entry -> entry.getValue() == 1) // Filter only entries with a count of 1
 //                .map(Map.Entry::getKey) // Get the character

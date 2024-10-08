@@ -1,7 +1,10 @@
 package StreamAPI;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -53,7 +56,27 @@ public class Test {
                 .map(StudentDemo::getAge)
                 .collect(Collectors.toList());
 
+
+
+        String str = "Apple,Orange,Apple,Orange";
+
+        Map<String, Long> result = Arrays.stream(str.split(","))
+                .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
+
+        List<Map.Entry<String, Long>> list = new ArrayList<>(result.entrySet());
+        System.out.println(list);
+
+        System.out.println(result.entrySet().stream().collect(Collectors.toList()));
+
+        List<Map.Entry<String, Long>> collect = result.entrySet().stream().collect(Collectors.toList());
+
+        String ss = "Apple,Orange,Apple,Orange";
+
+        Map<String, Long> res = Arrays.stream(str.split(","))
+                .collect(Collectors.groupingBy(i->i,Collectors.counting()));
+        System.out.println(res);
+        //{Apple=2, Orange=2}
+        Map<Object, List<String>> res1 = Arrays.stream(str.split(",")).collect(Collectors.groupingBy(s->s.equals("Apple")));
+        System.out.println(res1);
     }
-
-
 }

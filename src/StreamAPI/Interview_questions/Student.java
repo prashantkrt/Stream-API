@@ -185,7 +185,17 @@ public class Student {
 //                        student -> student,
 //                        (s1, s2) -> s1.getRank() < s2.getRank() ? s1 : s2 // Keep the student with the highest rank
 //                ));
-//
+
+      //approach 3 more details
+
+//        // Use Collectors.toMap to find the student with the minimum rank in each department
+//        Map<String, Student> studentData = students.stream()
+//                .collect(Collectors.toMap(
+//                        Student::getDepartmentName,    // Key: Department name
+//                        student -> student,            // Value: The student object
+//                        (existing, replacement) ->     // Merge function: Keep the student with the lower rank
+//                                existing.getRank() <= replacement.getRank() ? existing : replacement
+//                ));
 
         // 14- Find the list of students and sort them by their rank
         List<Student> stuRankSorted = list.stream().sorted(Comparator.comparing(Student::getRank))
