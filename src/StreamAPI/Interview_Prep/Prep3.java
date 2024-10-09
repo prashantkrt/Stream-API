@@ -56,6 +56,13 @@ public class Prep3 {
                         .flatMap(book -> book.getAuthors().stream()) // Stream of authors
                         .anyMatch(author -> author.getName().equalsIgnoreCase(authorName)))
                 .collect(Collectors.toList());
+
+//        return libraries.stream()
+//                .filter(library -> library.getBooks().stream()
+//                        .anyMatch(book -> book.getAuthors().stream()
+//                                .anyMatch(author -> author.getName().equalsIgnoreCase(authorName)))
+//                )
+//                .collect(Collectors.toList());
     }
 
     public static void main(String[] args) {

@@ -61,7 +61,7 @@ Java Stream Terminal Operations
 - count => Integer
 - reduce => Integer
 - collect
-- anyMatch => Boolean
+- anyMatch ⇒ Boolean
     example 1 ⇒ boolean result = stream.anyMatch(predicate);
     example 2 ⇒
       List<Integer> numbers = Arrays.asList(3, 7, 9, 12, 5);
@@ -80,7 +80,7 @@ Java Stream Terminal Operations
             .allMatch(num -> num % 2 == 0);  // Predicate: Is the number even?
 
         System.out.println("Are all numbers even? " + allEven); // Output: true
-- noneMatch => Boolean
+- noneMatch ⇒ Boolean
       List<Integer> numbers = Arrays.asList(1, 3, 5, 7, 9);
 
         // Check if none of the numbers are even
@@ -295,5 +295,18 @@ public class StreamAPI1 {
 
 
         System.out.println("End of content");
+
+        // Using Stream.of() to create a stream
+        // Creates a new stream containing the specified elements.
+        // Returns a Stream<T>, where T is the type of the provided elements.
+        Stream<String> streamOf = Stream.of("apple", "banana", "cherry");
+        streamOf.forEach(System.out::println); // Prints: apple, banana, cherry
+
+        // Using stream() to create a stream from a list
+        // Converts a collection (like a List, Set, or Map) into a stream.
+        //Also returns a Stream<T>, where T is the type of the elements in the collection.
+        List<String> lit = List.of("orange", "grape", "kiwi");
+        Stream<String> listStream = lit.stream();
+        listStream.forEach(System.out::println); // Prints: orange, grape, kiwi
     }
 }
