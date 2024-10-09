@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a5c4602-c38d-43aa-bc1c-d0b267612340" name="Changes" comment="Stream API">
-      <change afterPath="$PROJECT_DIR$/src/StreamAPI/Interview_Prep/Prep1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StreamAPI/Interview_Prep/Prep2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StreamAPI/Interview_Prep/Prep3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StreamAPI/StreamAPI6.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/Interview_questions/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/Interview_questions/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/StreamAPI2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/StreamAPI2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/StudentDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/StudentDemo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StreamAPI/Interview_questions/StreamInterviewQuestions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/Interview_questions/StreamInterviewQuestions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StreamAPI/Interview_questions/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/Interview_questions/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StreamAPI/StreamAPI2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/StreamAPI2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StreamAPI/StreamAPI5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/StreamAPI5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StreamAPI/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,19 +46,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Prep2.executor": "Run",
-    "Application.StreamAPI1.executor": "Run",
-    "Application.StreamAPI2.executor": "Run",
-    "Application.StreamAPI5.executor": "Run",
-    "Application.StreamInterviewQuestions.executor": "Run",
-    "Application.Student.executor": "Run",
-    "Application.Test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Prep2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StreamAPI1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StreamAPI2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StreamAPI5.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StreamInterviewQuestions.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Student.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Test">
     <configuration name="Prep2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="StreamAPI.Interview_Prep.Prep2" />
@@ -113,7 +104,7 @@
       <module name="Stream-API" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StreamAPI.Interview_questions.*" />
+          <option name="PATTERN" value="StreamAPI.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -187,7 +178,9 @@
       <workItem from="1727358639503" duration="60000" />
       <workItem from="1727956449991" duration="1962000" />
       <workItem from="1728017069947" duration="6459000" />
-      <workItem from="1728365428473" duration="6421000" />
+      <workItem from="1728365428473" duration="7134000" />
+      <workItem from="1728481308676" duration="6000" />
+      <workItem from="1728481321212" duration="875000" />
     </task>
     <task id="LOCAL-00001" summary="Stream API">
       <option name="closed" value="true" />
@@ -309,7 +302,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727358678242</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Stream API">
+      <option name="closed" value="true" />
+      <created>1728372179848</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1728372179849</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Stream API">
+      <option name="closed" value="true" />
+      <created>1728372190956</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1728372190956</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
