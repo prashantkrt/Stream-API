@@ -143,7 +143,7 @@ public class Interview {
          *  11.) Find the words with the maximum number of vowels
          * */
 
-        str = "the quickQuickQuick brownBrown foxFo jumps right over the little lazy dog little";
+        str = "the quick brown fox jumps right over the little lazy dog little";
         List<String> maxVowelWords = Arrays.stream(str.split(" "))
                 .collect(Collectors.groupingBy(
                         word -> word.chars()
@@ -158,7 +158,108 @@ public class Interview {
                 .map(Map.Entry::getValue)         // Get the list of words
                 .orElse(Collections.emptyList()); // Return an empty list if none found
 
-        System.out.println(maxVowelWords);
+        System.out.println(maxVowelWords);//[quick, over, little, little] all has 2 vowels
+
+        /*
+        * 11.) Given a list of integers, divide into two lists one having even numbers and other having odd numbers.
+        * */
+
+        List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9,10,12);
+
+        List<List<Integer>> answer = list.stream().collect(Collectors.groupingBy(e->e%2==0,Collectors.toList()))
+                .entrySet().stream()
+                .map(Map.Entry::getValue)
+                .collect(Collectors.toList());
+
+        System.out.println(answer); //[[1, 3, 5, 7, 9], [2, 4, 6, 8, 10, 12]]
+
+        /*{
+            false=[1, 3, 5, 7, 9],  // All odd numbers
+            true=[2, 4, 6, 8, 10, 12]  // All even numbers
+        }*/
+
+
+    /*
+    * 12.) Given an array of integers (2,34,54,23,33,20,59,11,19,37) group the numbers by range they belong to.
+    * The put should be {0=[2], 50=[54,59], 20=[23,20], 10=[11,19], 30=[34,33,37]}
+    * */
+
+    int [] arr = {2,34,54,23,33,20,59,11,19,37};
+        Map<Integer, List<Integer>> collect = Arrays.stream(arr).boxed().collect(Collectors.groupingBy(i -> i / 10 * 10));
+        System.out.println(collect);
+
+     /*
+     * 13.) Given a list of String ["as,"123","32","2as"], create another integer list that contains only integers.
+     * The output should be List<Integer> list =[123,32]
+     * */
+
+        List<String> ls =List.of("as","123","32","2as");
+        List<String> solution = ls.stream().filter(e->e.matches("^\\d+$")).collect(Collectors.toList());
+        System.out.println(solution);
+        //or
+        solution= ls.stream().filter(e->e.matches("[0-9]*")).collect(Collectors.toList());
+        System.out.println(solution);
+
+        /*
+        * 14.) Given an array of integers arr = {5,6,7,8,5,5,8,8,7} find the sum of the unique elements.
+        * */
+        List<Integer> ll = List.of(5,6,7,8,5,5,8,8,7);
+        ll.stream().distinct().mapToInt(i->i).sum();
+
+        int [] a = {5,6,7,8,5,5,8,8,7};
+        Arrays.stream(a).distinct().sum();
+
+        /*
+        * 15.) Given a numeric array, re-arrange the elements to form the smallest possible value
+        * */
+
+        int [] nums = {1,34,3,98,9,76,45,4,30};
+        Arrays.stream(nums)
+                .mapToObj(String::valueOf)
+                .sorted((a1,b1)->(a1+b1).compareTo(b1+a1))
+                .forEach(System.out::print);//13033444576989
+        /*
+        * The comparator (a + b).compareTo(b + a) ensures that numbers are sorted such that their concatenation forms the smallest value.
+        *  For example, between "3" and "30":
+        * "330" (a + b) vs. "303" (b + a) — "303" is smaller, so "30" should come before "3".
+        *  330-303 +ve so sort it
+        * */
+
+
+        /*
+         * 16.) Given a numeric array, re-arrange the elements to form the highest possible value
+         * */
+          nums = new int[]{1,34,3,98,9,76,45,4,30,11};
+         Arrays.stream(nums).mapToObj(String::valueOf).sorted((a1, b1) -> (b1 + a1).compareTo(a1 + b1)).forEach(System.out::println);
+
+        /*
+        The comparator (b + a).compareTo(a + b) ensures that the numbers are sorted in a way that their concatenation forms the largest possible value.
+        For example, between "3" and "30":
+        "303" (b + a) vs. "330" (b + a) — "330" is larger, so "3" should come before "30".
+        303-330 -ve no sorting,  3 should be before
+        */
+
+
+        /*
+        * 17.) Find the first non-repeated character
+        * */
+
+        str = "the quick brown fox jumps right over the little lazy dog little";
+        Arrays.stream(str.split(" ")).collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,Collectors.counting()))
+                .entrySet().stream()
+                .filter(i->i.getValue()==1)
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .ifPresent(System.out::println);
+        //or
+        String finalStr = str;
+        Arrays.stream(str.split(" ")).filter(c-> finalStr.indexOf(c)== finalStr.lastIndexOf(c)).findFirst().get();
+
+
+
+
+
+
 
     }
 }
