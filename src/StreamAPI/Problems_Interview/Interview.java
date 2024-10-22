@@ -101,6 +101,23 @@ public class Interview {
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         System.out.println(stringLong);
 
+        System.out.println();
+        Arrays.stream(str.split(" "))
+                .collect(Collectors.toMap(word->word, word->word.replaceAll("[^aeiouAEIOU]","").length(),(e,r)->r))
+                .entrySet().stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .findFirst()
+                .ifPresent(System.out::println);
+        System.out.println();
+
+        // or
+
+        Arrays.stream(str.split(" "))
+                .collect(Collectors.toMap(word->word, word->word.replaceAll("[^aeiouAEIOU]","").length(),(e,r)->r))
+                .keySet().stream()
+                .findFirst()
+                .ifPresent(System.out::println);
+
         /*
          * 10.) Create a map with the word and its vowel count
          * */
