@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a5c4602-c38d-43aa-bc1c-d0b267612340" name="Changes" comment="Stream API">
-      <change afterPath="$PROJECT_DIR$/src/StreamAPI/Problems_Interview/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StreamAPI/Problems_Interview/Interview.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StreamAPI/StreamAPI7.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/Interview_questions/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/Interview_questions/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/StreamAPI1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/StreamAPI1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stream-API/StreamAPI/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StreamAPI/StreamAPI7.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/StreamAPI7.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +181,7 @@
       <workItem from="1728365428473" duration="7134000" />
       <workItem from="1728481308676" duration="6000" />
       <workItem from="1728481321212" duration="2140000" />
-      <workItem from="1729572885940" duration="8801000" />
+      <workItem from="1729572885940" duration="9858000" />
     </task>
     <task id="LOCAL-00001" summary="Stream API">
       <option name="closed" value="true" />
@@ -340,7 +335,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728484922348</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Stream API">
+      <option name="closed" value="true" />
+      <created>1729582643334</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1729582643334</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

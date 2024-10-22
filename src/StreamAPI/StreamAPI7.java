@@ -69,6 +69,12 @@ public class StreamAPI7 {
                 BinaryOperator<U> mergeFunction,
                 Supplier<Map<K, U>> mapFactory
 
+         Collector<T, ?, M> toMap(
+          Function<? super T, ? extends K> keyMapper,
+          Function<? super T, ? extends U> valueMapper,
+          BinaryOperator<U> mergeFunction,
+          Supplier<M> mapSupplier)
+
          Map<String, Integer> fruitLengthMap = fruits.stream()
                .collect(Collectors.toMap(
                 fruit -> fruit,                   // Key mapper
@@ -78,19 +84,20 @@ public class StreamAPI7 {
               ));
 
 
-          groupingBy() :
-          public static <T, K> Collector<T, ?, Map<K, List<T>>> groupingBy(
-                Function<? super T, ? extends K> classifier,
-                Collector<? super T, ?, D> downstream,
-                Supplier<Map<K, A>> mapFactory
-            )
+        groupingBy() :
+        public static <T, K, A, D> Collector<T, ?, Map<K, D>> groupingBy(
+            Function<? super T, ? extends K> classifier,
+            Supplier<Map<K, D>> mapFactory,
+            Collector<? super T, A, D> downstream
+        )
 
-            Map<Character, List<String>> fruitsByInitial = fruits.stream()
-                .collect(Collectors.groupingBy(
-                    fruit -> fruit.charAt(0),       // Classifier
-                    Collectors.toList(),            // Downstream collector
-                    LinkedHashMap::new              // Map factory
-                ));
+
+        Map<Character, List<String>> fruitsByInitial = fruits.stream()
+            .collect(Collectors.groupingBy(
+                fruit -> fruit.charAt(0),       // Classifier
+                LinkedHashMap::new              // Map factory
+                Collectors.toList(),            // Downstream collector
+            ));
 
           */
     }
