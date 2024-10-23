@@ -254,12 +254,5 @@ public class Interview {
         //or
         String finalStr = str;
         Arrays.stream(str.split(" ")).filter(c-> finalStr.indexOf(c)== finalStr.lastIndexOf(c)).findFirst().get();
-
-
-
-
-
-
-
     }
 }
