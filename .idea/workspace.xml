@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0a5c4602-c38d-43aa-bc1c-d0b267612340" name="Changes" comment="Stream API">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StreamAPI/Problems_Interview/Interview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/Problems_Interview/Interview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StreamAPI/Interview_questions/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StreamAPI/Interview_questions/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +182,10 @@
       <workItem from="1728481308676" duration="6000" />
       <workItem from="1728481321212" duration="2140000" />
       <workItem from="1729572885940" duration="17510000" />
-      <workItem from="1729705362173" duration="40000" />
+      <workItem from="1729705362173" duration="62000" />
+      <workItem from="1729708791636" duration="1136000" />
+      <workItem from="1729795114174" duration="4953000" />
+      <workItem from="1729842951684" duration="45000" />
     </task>
     <task id="LOCAL-00001" summary="Stream API">
       <option name="closed" value="true" />
@@ -376,7 +379,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729705371337</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Stream API">
+      <option name="closed" value="true" />
+      <created>1729705420800</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1729705420800</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

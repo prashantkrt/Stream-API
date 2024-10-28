@@ -186,7 +186,7 @@ public class Student {
 //                        (s1, s2) -> s1.getRank() < s2.getRank() ? s1 : s2 // Keep the student with the highest rank
 //                ));
 
-      //approach 3 more details
+      //approach 3 more details the best approach
 
 //        // Use Collectors.toMap to find the student with the minimum rank in each department
 //        Map<String, Student> studentData = students.stream()
