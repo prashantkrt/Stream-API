@@ -77,6 +77,9 @@ public class Test {
         System.out.println(res);
         //{Apple=2, Orange=2}
         Map<Object, List<String>> res1 = Arrays.stream(str.split(",")).collect(Collectors.groupingBy(s->s.equals("Apple")));
-        System.out.println(res1);
+        System.out.println(res1); //{false=[Orange, Orange], true=[Apple, Apple]}
+        //Instead use
+        Map<Boolean, List<String>> r = Arrays.stream(str.split(",")).collect(Collectors.partitioningBy(s->s.equals("Apple")));
+        System.out.println(r);
     }
 }

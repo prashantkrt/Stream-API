@@ -44,11 +44,13 @@ public class StreamAPI5 {
 
         Student[] arr = {new Student(10, 12, "ABC"), new Student(23, 56, "BCV")};
         double average = Arrays.stream(arr).mapToInt(g -> g.roll).average().getAsDouble();
+        double average1 = Arrays.stream(arr).map(g -> g.roll).collect(Collectors.averagingDouble(Double::valueOf));
         int max = Arrays.stream(arr).mapToInt(g -> g.marks).max().getAsInt();
         //or
         max = Arrays.stream(arr).map(i -> i.marks).max((i, j) -> i > j ? 1 : -1).get();
         int min = Arrays.stream(arr).mapToInt(g -> g.marks).min().getAsInt();
         int sum = Arrays.stream(arr).mapToInt(g -> g.roll).sum();
+        //int sum = Arrays.stream(arr).map(g -> g.roll).sum(); wont work
         System.out.println(average);
 
         Map<Integer, Integer> map = Arrays.stream(arr).collect(Collectors.toMap(Student::getMarks, Student::getRoll));

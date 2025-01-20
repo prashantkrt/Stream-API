@@ -64,6 +64,8 @@ public class StreamInterviewQuestions {
 //     **  FirstNonRepeatedCharacter **
 
         String input = "swiss";
+       IntStream chars = input.chars(); //gives InputStream
+        // .mapToObj(c -> (char) c) converts each int to its corresponding char, resulting in a stream of characters: ['s', 'w', 'i', 's', 's'].
 // The input.chars() method in Java's String class returns an IntStream of the characters in the string.
 // Using LinkedHashMap to maintain the order
 
@@ -205,11 +207,46 @@ public class StreamInterviewQuestions {
         System.out.println(result);
 
 
+        //Examples of whitespace characters:
+        //' ' (space)
+        //'\t' (tab)
+        //'\n' (newline)
+        //'\r' (carriage return)
+        input = "Java Articles are Awesome";
+
+        //confusing ignore it
+        //String sanitizedInput = input.replaceAll("\\s", ""); we can also do this way
+        Character firstRepeatedChar = input.chars()
+                .mapToObj(c -> Character.toLowerCase((char) c)) // Convert int to char
+                .filter(c -> !Character.isWhitespace(c)) // Ignore whitespaces (optional)
+                .filter(new HashSet<>()::add) // Filter characters that can't be added to the set
+                .findFirst()
+                .orElse(null);
+
+        System.out.println("First repeated character: " + firstRepeatedChar);
+
+        //char lower = Character.toLowerCase('A'); // Converts 'A' to 'a'
+        //char upper = Character.toUpperCase('b'); // Converts 'b' to 'B'
+        //
+        //System.out.println(lower); // Output: a
+        //System.out.println(upper); // Output: B
+        //String input = "Java Programming";
+        //
+        // Convert to lowercase
+        //String lower = input.toLowerCase(); // "java programming"
+        //
+        // Convert to uppercase
+        //String upper = input.toUpperCase(); // "JAVA PROGRAMMING"
+        //
+        //System.out.println(lower); // Output: java programming
+        //System.out.println(upper); // Output: JAVA PROGRAMMING
+
         // 2nd way
         Set<Character> seenCharacters = new HashSet<>();
 
         resultNew = input.chars()
                 .mapToObj(c -> (char) c)
+                .filter(c -> !Character.isWhitespace(c))
                 .filter(c -> !seenCharacters.add(c))
                 .findFirst()
                 .orElse(null);
