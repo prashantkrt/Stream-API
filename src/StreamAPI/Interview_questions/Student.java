@@ -1,6 +1,5 @@
 package StreamAPI.Interview_questions;
 
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -65,7 +64,13 @@ public class Student {
         // list.stream().collect(Collectors.groupingBy(Student::getDepartmentName));
         System.out.println(mapData);
 
-        // Group by department and collect list of student IDs
+        // Both are same
+        // By default, groupingBy already collects elements into a List.So, the result will be a Map<String, List<Student>>.
+        // => Map<String, List<Student>> mapData = list.stream().collect(Collectors.groupingBy(student -> student.getDepartmentName()));
+        // Here, you explicitly tell groupingBy to use Collectors.toList(). But this is exactly what groupingBy does by default — so it's redundant.
+        // => Map<String, List<Student>> collect1 = list.stream().collect(Collectors.groupingBy(student -> student.getDepartmentName(), Collectors.toList()));
+
+        // Group by department and collect a list of student IDs
         Map<String, List<Integer>> mapDataImp = list.stream()
                 .collect(Collectors.groupingBy(
                         Student::getDepartmentName,
@@ -82,6 +87,7 @@ public class Student {
 
         // 4 - Find the max age of Student
         OptionalInt maxAge = list.stream().mapToInt(dt -> dt.getAge()).max();
+
         System.out.println("Max age of student : " + maxAge.getAsInt());
         // or
         int maxAgeValue = list.stream().map(dt -> dt.getAge()).max((a,b)->a-b).get();
@@ -89,6 +95,22 @@ public class Student {
 
         Integer max = list.stream().map(i -> i.getAge()).max((a, b) -> (a - b)).get();
         System.out.println(max);
+
+        Student oldestStudent = list.stream()
+                .max(Comparator.comparingInt(Student::getAge))
+                .get();
+
+        oldestStudent = list.stream().max((a,b)->a.getAge()-b.getAge()).get();
+        //or
+        oldestStudent = list.stream().min((a,b)->b.getAge()-a.getAge()).get();
+
+
+        Student youngestStudent = list.stream()
+                .min(Comparator.comparingInt(Student::getAge))
+                .get();
+        youngestStudent = list.stream().min((a,b)->a.getAge()-b.getAge()).get();
+        //or
+        youngestStudent = list.stream().max((a,b)->b.getAge()-a.getAge()).get();
 
         // 5 - Find all departments names
         /*

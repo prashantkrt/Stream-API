@@ -14,10 +14,11 @@ public class StreamInterviewQuestions {
         // with formatting
         String str = "Apple,Orange,Apple,Orange";
 
+        //{Apple=2, Orange=2}
         Map<String, Long> result = Arrays.stream(str.split(","))
                 .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
 
-        // [Apple-2, Orange-2]
+        // transforming to this way [Apple-2, Orange-2]
         String output = result.entrySet().stream()
                 .map(e -> e.getKey() + "-" + e.getValue())
                 .collect(Collectors.joining(", ", "[", "]"));
@@ -35,6 +36,11 @@ public class StreamInterviewQuestions {
         System.out.println();
 
         result.forEach((key, value) -> System.out.println(key + "-" + value));
+
+
+        Map<String, List<String>> result2 = Arrays.stream(str.split(","))
+                .collect(Collectors.groupingBy(s -> s, Collectors.toList()));
+        System.out.println(result2);//{Apple=[Apple, Apple], Orange=[Orange, Orange]}
 
 
         // Third way
