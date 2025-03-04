@@ -65,6 +65,15 @@ public class Student {
         // list.stream().collect(Collectors.groupingBy(Student::getDepartmentName));
         System.out.println(mapData);
 
+        // Group by department and collect list of student IDs
+        Map<String, List<Integer>> mapDataImp = list.stream()
+                .collect(Collectors.groupingBy(
+                        Student::getDepartmentName,
+                        Collectors.mapping(Student::getId, Collectors.toList())
+                ));
+
+        System.out.println(mapData);
+
 
         // 3 - Find the total count of Student using stream
         long countStudent = list.stream().count();

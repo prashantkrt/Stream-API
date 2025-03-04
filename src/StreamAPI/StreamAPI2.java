@@ -1,9 +1,6 @@
 package StreamAPI;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamAPI2 {
@@ -41,10 +38,17 @@ public class StreamAPI2 {
         list.stream().max((p1, p2) -> (int) (p1.price - p2.price)).get();
         System.out.println(product.price);
 
+        //list.stream() creates a Stream of Product objects, not a primitive stream like IntStream or DoubleStream.
+        //max() without a comparator wouldn’t know how to compare products — it only works directly for primitives.
         StreamAPI2 product1 = list.stream()
                 .max(Comparator.comparingDouble(p -> p.price))
                 .get();
         System.out.println(product.price);
+
+        StreamAPI2 product2 = list.stream()
+                .max(Comparator.comparing(p -> p.price))
+                .get();
+        System.out.println(product2.price);
 
         long count = list.stream().filter(p -> p.price < 30000).count();
         System.out.println(count);
@@ -53,5 +57,18 @@ public class StreamAPI2 {
         Map<Integer, String> map = list.stream().collect(Collectors.toMap(p -> p.id, p -> p.name));
         System.out.println(map);
 
+
+        // Comparator.comparingDouble is meant for primitive double values,
+        // so it avoids unnecessary boxing and unboxing that would happen if you used Double objects.
+
+        double[] arr = {1.5, 3.7, 2.2, 4.8};
+
+        // Find the maximum value using comparingDouble
+        double max = Arrays.stream(arr)
+                .boxed() // Box the primitive double to Double
+                .max(Comparator.comparingDouble(i -> i))
+                .get();
+
+        System.out.println("Max value: " + max);
     }
 }

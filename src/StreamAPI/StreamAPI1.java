@@ -1,6 +1,7 @@
 package StreamAPI;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -206,9 +207,53 @@ public class StreamAPI1 {
 
         List<Integer> ll = List.of(1, 2, 3, 4);
         int max = ll.stream().max((i, j) -> i > j ? 1 : -1).get();
+        // ways
+        // int max = ll.stream().max(Integer::compareTo).get();
+        // Comparator.comparing (for objects, like Integer)
+        // Comparator.comparingInt (optimized for primitive int values)
+
+        // for reference =>
+        // Integer wrapperInteger = Integer.valueOf(primitiveInt); Boxing: int → Integer
+        // int primitiveInt = 10;
+        // int unboxedInt = wrapperInteger.intValue();  Unboxing: Integer → int
+
+        // int max = ll.stream().max(Comparator.comparing(Integer::valueOf)).get();
+        // int max = ll.stream().max(Comparator.comparing(i -> Integer.valueOf(i))).get();
+        // int max = ll.stream().max(Comparator.comparing(i -> i)).get(); since list is already in Integer
+        // int max = ll.stream().max(Comparator.comparingInt(i -> i)).get();
+        // int max = ll.stream().max(Comparator.comparingInt(Integer::intValue)).get();
+
+
+        int[] arr = {1, 2, 3, 4};
+        // Box primitives to Integer and use comparing
+        int maximum = Arrays.stream(arr)
+                .boxed()
+                .max(Comparator.comparing(i -> i))
+                .get();
+        System.out.println(maximum);
+        //Primitive streams (IntStream) → Use methods like max(), min() directly.
+        //Boxing to Integer (boxed()) → Allows using Comparator.comparing
+
         System.out.println(max);
         int max2 = ll.stream().max((a, b) -> a - b).get();
         System.out.println(max2);
+
+        arr = new int[]{1, 2, 3, 4};
+        //arr is a primitive int[] array, not an object array.
+        //Arrays.stream(arr) for primitive arrays returns an IntStream, not a regular Stream<Integer>.
+        //IntStream doesn’t work with Comparator, because it already knows it's dealing with int.
+        //So, trying to use Comparator.comparingInt or casting to (int) doesn’t make sense — it’s already an int!
+        //Arrays.stream(arr).max(Comparator.comparing(a->a)).get(); // will not work
+
+        //for primitive use only min() or max() using comparator.comparing() or comparator.comparingInt() won't work
+        max = Arrays.stream(arr).max().getAsInt();//better for primitive int
+        int min = Arrays.stream(arr).min().getAsInt();
+
+        // Find max in a primitive array
+        // in primitive we can directly use min() and max()
+        int maximum2 = Arrays.stream(arr)
+                .max()
+                .getAsInt();
 
         // peek() API to debug the Stream operations and log Stream elements as they are processed.
 
@@ -253,11 +298,16 @@ public class StreamAPI1 {
                 }).forEach(System.out::println);
 
         Stream.of(Arrays.asList(1, 2, 3, 4, 5)).flatMap(i -> i.stream()).collect(Collectors.toList());
-        Stream.of(Arrays.asList(1, 2, 3, 4, 5)).flatMap(i -> i.stream()).filter(i -> i % 2 != 0).forEach(i -> {
+        Stream.of(Arrays.asList(1, 2, 3, 4, 5),Arrays.asList(2,3,4,5,6)).flatMap(i -> i.stream()).filter(i -> i % 2 != 0).forEach(i -> {
         });
 
         // just random things :)
-        List<Integer> ml = Stream.of(1, 2, 3, 4).filter(i -> i % 2 == 0).collect(Collectors.groupingBy(e -> e, Collectors.counting())).entrySet().stream().filter(c -> c.getValue() > 1).map(m -> m.getKey()).toList();
+        List<Integer> ml = Stream.of(1, 2, 3, 4,8,4).filter(i -> i % 2 == 0)
+                .collect(Collectors.groupingBy(e -> e, Collectors.counting()))
+                .entrySet().stream()
+                .filter(c -> c.getValue() > 1)
+                .map(m -> m.getKey())
+                .toList();
 
 
 //        The peek() method in Java's Stream API is used to perform an action (like logging or debugging) on each element in the stream as it passes through, without modifying the stream. It allows you to "peek" at the elements while they are being processed.
