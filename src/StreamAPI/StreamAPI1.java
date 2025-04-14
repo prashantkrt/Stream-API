@@ -42,7 +42,7 @@ Using peek without any terminal operation does nothing.
 
      Stream.of("B", "A", "C" , "B")
         .peek(System.out::print)
-        .forEach(
+        .forEach(x -> { });
      returns a Stream with the elements "B", "A", "C" and "B" but, when consumed in its entirety, will print out the text "BACB" as a side effect.
 
 - limit()
