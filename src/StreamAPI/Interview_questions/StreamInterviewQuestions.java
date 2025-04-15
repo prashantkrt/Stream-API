@@ -43,7 +43,7 @@ public class StreamInterviewQuestions {
         System.out.println(result2);//{Apple=[Apple, Apple], Orange=[Orange, Orange]}
 
 
-        // Third way
+      // Third way
 //    Map<String, Integer> result = Arrays.stream(str.split(","))
 //            .collect(Collectors.toMap(
 //                    s -> s,
@@ -69,11 +69,17 @@ public class StreamInterviewQuestions {
 
 //     **  FirstNonRepeatedCharacter **
 
-        String input = "swiss";
-       IntStream chars = input.chars(); //gives InputStream
-        // .mapToObj(c -> (char) c) converts each int to its corresponding char, resulting in a stream of characters: ['s', 'w', 'i', 's', 's'].
-// The input.chars() method in Java's String class returns an IntStream of the characters in the string.
-// Using LinkedHashMap to maintain the order
+        String input = "abc";
+
+//       input.chars() returns an IntStream, not a CharStream (because Java doesn't have one).
+//       input.chars().forEach(System.out::println);
+//       String input = "swiss";
+
+        IntStream chars = input.chars(); //gives InputStream
+
+//       .mapToObj(c -> (char) c) converts each int to its corresponding char, resulting in a stream of characters: ['s', 'w', 'i', 's', 's'].
+//       The input.chars() method in Java's String class returns an IntStream of the characters in the string.
+//       Using LinkedHashMap to maintain the order
 
 //        Character firstNonRepeatedChar = input.chars()
 //                .mapToObj(c -> (char) c)
@@ -85,7 +91,16 @@ public class StreamInterviewQuestions {
 //                .findFirst()
 //                .orElse(null);
 
-//
+//        input.chars() gives you an IntStream of character code points.
+//        mapToObj(c -> (char) c) converts each int code point to a Character.
+//        .mapToObj(c -> (char) c)
+//        technically converts int to a char primitive, not a Character object.
+//        Even though (char) c is a primitive char, Java autoboxes it automatically to a Character object — because .mapToObj(...) expects the function to return an object type.
+//        So:
+//        (char) c → char
+//        Java autoboxes it → Character
+//        So .mapToObj(c -> (char) c) ends up giving you a Stream<Character>
+
 //        Character firstNonRepeatedChar = input.chars()
 //                .mapToObj(c -> (char) c)
 //                .collect(Collectors.groupingBy(c -> c, LinkedHashMap::new, Collectors.counting()))
@@ -107,6 +122,23 @@ public class StreamInterviewQuestions {
                 .orElse(null);
 
         System.out.println(firstNonRepeatedChar);
+
+        Character firstNonRepeatedCharBoxed = input.chars()
+                .boxed()        // Using .boxed() instead of .mapToObj(c -> (char) c) will also work,
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() == 1)
+                .map(entry -> (char) (int) entry.getKey())  // You need this cast! why => entry.getKey() → returns an Integer object => (int) entry.getKey() → unboxes the Integer to primitive int => (char) (int) entry.getKey() → casts that int to char
+                .findFirst()
+                .orElse(null);
+
+//         IntStream.boxed() ➝ Stream<Integer>
+//         LongStream.boxed() ➝ Stream<Long>
+//         DoubleStream.boxed() ➝ Stream<Double>
+
+//        .boxed() turns each int into an Integer, so the grouping map will have Map<Integer, Long>.
+//        You'd need to cast the key back to a char manually when mapping: (char)(int)entry.getKey().
 
 
         long number = 121234;
@@ -136,7 +168,7 @@ public class StreamInterviewQuestions {
 //                .map(Map.Entry::getKey)  // Get the Character from the entry
 //                .findFirst();  // Find the first non-repeated character
 //
-//        // Print the result
+//        Prints the result
 //        firstNonRepeatedDigit.ifPresentOrElse(
 //                digit -> System.out.println("First non-repeated digit: " + digit),
 //                () -> System.out.println("No non-repeated digit found.")

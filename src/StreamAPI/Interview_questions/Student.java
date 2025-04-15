@@ -86,7 +86,11 @@ public class Student {
 
 
         // 4 - Find the max age of Student
-        OptionalInt maxAge = list.stream().mapToInt(dt -> dt.getAge()).max();
+        OptionalInt maxAge = list.stream().mapToInt(dt -> dt.getAge()).max(); //mapToInt() gives you an IntStream, not an object stream.
+        // And IntStream.max() is already optimized for primitive ints, So there’s no use or need for Comparator.comparing(...)
+        // list.stream()
+        //    .mapToInt(dt -> dt.getAge())
+        //    .max(Comparator.comparingInt(...)); // ERROR!
 
         System.out.println("Max age of student : " + maxAge.getAsInt());
         // or
@@ -182,6 +186,7 @@ public class Student {
         System.out.println("Average rank in all departments  : "+collect);
 
 
+        // Imp
         // 13 - Find the highest rank in each department
         /*
         Highest rank in each department  : {Electronics Engineering=Optional[Employee [id=7, firstName=Arun, lastName=Vittal, age=26, gender=Male, departmentName=Electronics Engineering, joinedYear=2014, city=Karnataka, rank=324]], Instrumentation Engineering=Optional[Employee [id=10, firstName=Shubham, lastName=Pandey, age=26, gender=Male, departmentName=Instrumentation Engineering, joinedYear=2017, city=Mumbai, rank=98]], Biotech Engineering=Optional[Employee [id=5, firstName=Roshan, lastName=Mukd, age=23, gender=Male, departmentName=Biotech Engineering, joinedYear=2022, city=Mumbai, rank=12]], Mechanical Engineering=Optional[Employee [id=4, firstName=Satish Ray, lastName=Malaghan, age=30, gender=Male, departmentName=Mechanical Engineering, joinedYear=2014, city=Kerala, rank=26]], Computer Engineering=Optional[Employee [id=9, firstName=Sonu, lastName=Shankar, age=27, gender=Female, departmentName=Computer Engineering, joinedYear=2018, city=Karnataka, rank=7]]}
