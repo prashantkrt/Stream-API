@@ -229,6 +229,7 @@ public class StreamAPI1 {
         System.out.println();
         System.out.println(total);
 
+
         List<Integer> number = Arrays.asList(2, 3, 4, 5);
         List<Integer> square = number.stream().map(x -> x * x).toList();
 
@@ -264,6 +265,12 @@ public class StreamAPI1 {
         int sum2 = l.stream().filter(i -> i % 2 == 0).reduce(0, (a, b) -> (a + b));
         System.out.println(sum2);
 
+        // There are TWO different max operations in Java Streams
+        // 1. needs the comparator
+        //  - Compares objects
+        //  - Needs a Comparator
+        //  - Returns Optional<T>
+        // 2. IntStream.max() (primitive) => Returns OptionalInt
 
         List<Integer> ll = List.of(1, 2, 3, 4);
         int max = ll.stream().max((i, j) -> i > j ? 1 : -1).get();
