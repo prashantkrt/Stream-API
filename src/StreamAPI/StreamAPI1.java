@@ -8,8 +8,11 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /*
-Java Stream Intermediate Operations
+Note : Stream.of() creates a stream whose elements are the provided values.
+Example : Stream<String> s = Stream.of("A", "B", "C");
 
+## Java Stream Intermediate Operations ##
+-----------------------------------------
 - filter()
   Stream.of("B", "A", "C" , "B")
         .filter(s -> s.equals("B"))
@@ -20,12 +23,48 @@ Java Stream Intermediate Operations
 
 - flatMap()
   // flattens the multiple Stream to single Stream
+  // flatMap() flattens those nested streams into one single stream.
 
-        Stream.of(
-        Arrays.asList("B", "A"),
-        Arrays.asList("C", "B")
-        )
-        .flatMap(l -> l.stream())
+    List<List<Integer>> list = List.of(
+     List.of(1, 2),
+     List.of(3, 4),
+     List.of(5)
+    );
+
+     list.stream()
+    .map(l -> l.stream()) but map() returns: Stream<Stream<Integer>>
+    .forEach(System.out::println);
+
+    java.util.stream.ReferencePipeline$Head@...
+    java.util.stream.ReferencePipeline$Head@...
+    java.util.stream.ReferencePipeline$Head@...
+
+    or even we do this way
+    list.stream()
+    .map(l -> l)  => returns Stream<List<Integer>>
+    .forEach(System.out::println);
+    Output:
+    [1, 2]
+    [3, 4]
+    [5]
+
+    Using flatMap() (correct way)
+    list.stream()
+    .flatMap(l -> l.stream())    => return Stream<Integer>
+    .forEach(System.out::print);
+    Output: 1 2 3 4 5
+
+    List<List<String>> orders = List.of(
+     List.of("Pen", "Book"),
+     List.of("Laptop"),
+     List.of("Phone", "Charger")
+    );
+
+    //flatMap() = map + flatten
+    //Converts Stream<Stream<T>> → Stream<T>
+    orders.stream()
+          .flatMap(order -> order.stream())
+          .forEach(System.out::println);
 
 - distinct()
    Stream.of("B", "A", "C" , "B")
@@ -35,15 +74,24 @@ Java Stream Intermediate Operations
    Stream.of("B", "A", "C" , "B")
         .sorted()
 
-Using peek without any terminal operation does nothing.
--  peek()
+- peek()
+ Using peek without any terminal operation does nothing.
+ peek() is an intermediate operation used mainly for debugging.
+ peek() processes elements one by one (line-by-line), not all at once.
+
+Example 1: This prints nothing
+           Why? → No terminal operation
      Stream.of("B", "A", "C" , "B")
         .peek(System.out::print)
 
+Example 2:
+// Creates a stream with elements: B, A, C, B
+// peek() prints each element as it flows through the pipeline
+// forEach() is a terminal operation that triggers stream execution
+// As the stream is consumed element by element, the output will be: BACB
      Stream.of("B", "A", "C" , "B")
         .peek(System.out::print)
         .forEach(x -> { });
-     returns a Stream with the elements "B", "A", "C" and "B" but, when consumed in its entirety, will print out the text "BACB" as a side effect.
 
 - limit()
      Stream.of("B", "A", "C" , "B")
@@ -57,7 +105,8 @@ Using peek without any terminal operation does nothing.
 
 
 /*
-Java Stream Terminal Operations
+## Java Stream Terminal Operations ##
+-------------------------------------
 - forEach => void
 - count => Integer
 - reduce => Integer
@@ -114,6 +163,8 @@ Java Stream Terminal Operations
 - min
 - max
 - toArray
+Note: toArray() without arguments returns: Object[] => Object[] temp = numbers.stream().toArray();
+So we use size -> new Integer[size] or new String[size]
       List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
 
         // Convert the stream to a String array using a lambda expression
@@ -358,5 +409,29 @@ public class StreamAPI1 {
         List<String> lit = List.of("orange", "grape", "kiwi");
         Stream<String> listStream = lit.stream();
         listStream.forEach(System.out::println); // Prints: orange, grape, kiwi
+
+
+        List<Integer> nums = List.of(1, 2, 3, 4);
+
+        nums.stream()
+                .peek(n -> System.out.println("Before: " + n))
+                .map(n -> n * 2)
+                .peek(n -> System.out.println("After: " + n))
+                .forEach(System.out::println);
+        //Output:
+        /*
+            Before: 1
+            After: 2
+            2
+            Before: 2
+            After: 4
+            4
+            Before: 3
+            After: 6
+            6
+            Before: 4
+            After: 8
+            8
+      */
     }
 }
