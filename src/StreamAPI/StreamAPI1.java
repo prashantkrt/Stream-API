@@ -164,7 +164,9 @@ Example 2:
 - max
 - toArray
 Note: toArray() without arguments returns: Object[] => Object[] temp = numbers.stream().toArray();
-So we use size -> new Integer[size] or new String[size]
+Integer[] numbersArray = numbers.toArray(new Integer[0]);  just used to tell Java the TYPE,The array you pass is a TYPE HINT, not a size instruction
+or,
+we use size -> new Integer[size] or new String[size]
       List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
 
         // Convert the stream to a String array using a lambda expression
@@ -193,7 +195,14 @@ public class StreamAPI1 {
         // sum of odd number * 2
         int sumOdd = list.stream().filter(i -> i % 2 != 0).map(i -> i * 2).reduce(0, Integer::sum);
 
-        // sum of only even number
+        // Sum of only even number
+        // Math operations (sum, average, min, max) exist only on primitive streams
+        /*
+        Primitive Stream:
+        IntStream      | int
+        LongStream     | long
+        DoubleStream   | double
+        */
         int evenSum = list.stream().filter(i -> i % 2 == 0).mapToInt(n -> n).sum();
         System.out.println(evenSum);
 
